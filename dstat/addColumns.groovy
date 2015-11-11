@@ -32,8 +32,8 @@ files.each { File oldCsv ->
 
             def dstatDate = line.split(',').first()
             Date lineDate = Date.parse('yyy-dd-MM HH:mm:ss', "2015-$dstatDate")
-            long milis = lineDate.time / 1000
-            newCsv.append(line.replaceFirst(dstatDate, milis.toString()) + ",$lang,$test_type,$test_threads,$server,$testGroup\n")
+            long seconds = lineDate.time / 1000
+            newCsv.append(line.replaceFirst(dstatDate, seconds.toString()) + ",$lang,$test_type,$test_threads,$server,$testGroup\n")
         }
     }
     println ''
